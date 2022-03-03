@@ -40,7 +40,7 @@ object_counter = {
 #draw the lines
 def draw_lines(lines, img):
     for line in lines:
-        img = cv2.line(img, line['Cord'][0],line['Cord'][0], (255,255,255),3)
+        img = cv2.line(img, line['Cords'][0],line['Cords'][0], (255,255,255),3)
     return img
 
 #Update the Counter
