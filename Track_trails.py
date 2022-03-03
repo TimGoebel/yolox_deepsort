@@ -39,34 +39,35 @@ def vis_track(img, outputs):
 
     for i in range(len(outputs)):
         box = outputs[i]
-        x0 = int(box([0]))
-        y0 = int(box([1]))
-        x1 = int(box([2]))
-        y0 = int(box([3]))
+        x0 = int(box[0])
+        y0 = int(box[1])
+        x1 = int(box[2])
+        y1 = int(box[3])
         id = box[4]
         clsid = box[5]
 
         if id not in pts:
             pts[id] = deque(maxlen=64)
 
-        #pts = {'1' : deque(),'2' : deque()}
+        # pts = { '1' : deque(),'2' : deque()}
 
-        center = (int((x0+x1)/2), int((y0+y1)/2))
+        center = (int((x0+x1)/2) , int((y0+y1)/2))
         pts[id].append(center)
 
-        #darw a circle
+        # Drawing a circle
         color = compute_color_for_labels(clsid)
-        thinkness = 5
-        cv2.circle(img, (center), 1, color, thickness)
+        thickness = 5
+        cv2.circle(img,  (center), 1, color, thickness)
 
         # Draw motion path
         for j in range(1, len(pts[id])):
-            if pts[id][j-1] is None or pts[id][j] is None:
+            if pts[id][j - 1] is None or pts[id][j] is None:
                 continue
-            thickness = int(np.sqrt(64/float(j+1))*3)
+            thickness = int(np.sqrt(64 / float(j + 1)) * 3)
             cv2.line(img,(pts[id][j-1]), (pts[id][j]),(color),thickness)
 
     return img
+
 
 
 # Draw the boxes having tracking indentities
@@ -132,7 +133,7 @@ class Tracker():
                         identities =outputs[:, -2]
                         object_id =outputs[:, -1]
                         image = draw_boxes(image, bbox_xyxy, object_id,identities)
-                        image = vis_track(image,outputs)
+                        image = vis_track(image, outputs)
             return image, outputs
 
 
