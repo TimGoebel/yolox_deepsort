@@ -32,7 +32,7 @@ lines = [
 ]
 object_counter = {
     'Line1' : Counter(),
-    'Line2' : Counter(),
+    'Line2' : Counter()
 }
 
 
