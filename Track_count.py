@@ -27,8 +27,8 @@ class_names = COCO_CLASSES
 
 
 lines = [
-    {'Title','Line1', 'Cords':[(580,500),(100,500)]},
-    {'Title','Line2', 'Cords':[(680,500),(1070,500)]}
+    {'Title':'Line1', 'Cords':[(580,500),(100,500)]},
+    {'Title':'Line2', 'Cords':[(680,500),(1070,500)]}
 ]
 object_counter = {
     'Line1' : Counter(),
