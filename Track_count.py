@@ -7,6 +7,7 @@ import time
 from yolox.exp import get_exp
 import numpy as np
 from collections import deque
+from collections import Counter
 
 # importing Detector
 from yolox.data.datasets.coco_classes import COCO_CLASSES
