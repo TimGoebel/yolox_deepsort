@@ -39,7 +39,7 @@ class VideoCamera(object):
         global res;
         # print(sys.argv[1])
 
-        self.video = cv2.VideoCapture(sys.argv[1])
+        self.video = cv2.VideoCapture(sys.argv[0])
         res = f"{int(self.video.get(cv2.CAP_PROP_FRAME_WIDTH))} x {int(self.video.get(cv2.CAP_PROP_FRAME_HEIGHT))}"
 
     def __del__(self):
